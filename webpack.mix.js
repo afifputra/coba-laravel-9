@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +11,36 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+// mix.js("resources/js/app.js", "public/js").postCss(
+//     "resources/css/app.css",
+//     "public/css",
+//     [
+//         //
+//     ]
+// );
+
+// LOGIN MIX
+
+// mix main javascript
+mix.js("public/template/js/main.js", "public/assets/js/main.min.js").version();
+
+// mix main css file
+mix.styles(
+    "public/template/css/style.css",
+    "public/assets/css/style.min.css"
+).version();
+
+// mix vendor javascript
+mix.js(
+    ["public/template/vendor/bootstrap/js/bootstrap.bundle.min.js"],
+    "public/vendor/bootstrap/js/bootstrap.min.js"
+);
+
+// mix vendor css file
+mix.styles(
+    [
+        "public/template/vendor/bootstrap/css/bootstrap.min.css",
+        "public/template/vendor/bootstrap-icons/bootstrap-icons.css",
+    ],
+    "public/vendor/bootstrap/css/bootstrap.min.css"
+);
